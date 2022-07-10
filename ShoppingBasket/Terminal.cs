@@ -90,6 +90,11 @@ namespace ShoppingBasket.Presentation
             {
                 Console.WriteLine($"Subtotal: €{shoppingBilling.Subtotal}");
 
+                if (!shoppingBilling.AppliedDiscounts.Any())
+                {
+                    Console.WriteLine("(No offers available)");
+                }
+
                 foreach (var appliedDiscount in shoppingBilling.AppliedDiscounts)
                 {
                     Console.WriteLine($"{appliedDiscount.ItemName} {appliedDiscount.DiscountPercentage}% off: -€{appliedDiscount.SavedValue}");
